@@ -4,10 +4,25 @@ import { Pokemon } from './../shared/pokemon';
 
 @Component({
     moduleId: module.id,
+    selector: 'pk-list',
     templateUrl: 'poke-list.component.html'
 })
 
-export class PokemonListComponent {
-    constructor() { }
+export class PokemonListComponent implements OnInit {
+
+    pokemon: Pokemon[];
+    errorMessage: string;
+    
+    constructor(private pokemonService: PokemonService) { }
+
+    ngOnInit()
+    {
+        this.getPokemon();
+    }
+
+    getPokemon()
+    {
+
+    }
 
 }

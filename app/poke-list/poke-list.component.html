@@ -1,1 +1,37 @@
-<h1>PokemonListComponent</h1>
+<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+
+            <!-- Error Message -->
+            <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+            <div class="col-md-4">
+                <div class="card poke-row text-center">
+                    <div class="row text-center text-white">
+                        <img class="rounded mx-auto d-block poke-img">
+                    </div>
+                    <div class="card-block">
+                        <h3 class="card-title text-center">Pokemon Name</h3>
+                        <p class="card-text text-center"><b>Species:</b> Poke Species</p>
+                        <button type="button" class="btn btn-info">Flying</button>
+                        <button type="button" class="btn btn-info">Electric</button>
+                        <button type="button" class="btn btn-info">Ice</button>
+                        <button type="button" class="btn btn-success">Grass</button>
+                        <button type="button" class="btn btn-success">Bug</button>
+                        <button type="button" class="btn btn-warning">Poison</button>
+                        <button type="button" class="btn btn-danger">Fire</button>
+                        <button type="button" class="btn btn-primary">Water</button>
+                        <button type="button" class="btn btn-secondary">Normal</button>
+                        <button type="button" class="btn btn-secondary">Psychic</button>
+                        <span class="card-link" hidden><i class="fa fa-pencil"></i></span>
+                        <span class="card-link text-warning">
+                        <i class="fa fa-info-circle fa-2x"></i></span>
+                        <span class="card-link text-danger" tooltip="Careful, this will delete Pokemon!" placement="right">
+                        <i class="fa fa-trash-o fa-2x"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
