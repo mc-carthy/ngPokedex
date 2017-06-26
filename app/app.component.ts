@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  appName: string = "Angular Boilerplate";
+  appName: string = "ngPokedex";
 }
