@@ -1,12 +1,26 @@
-/* Navbar */
-.nav .navbar-nav {
-  font-size: 15px;
+.poke-row {
+    margin-bottom: 10px;
 }
-#searchForm {
-  margin-right: 100px;
+
+.poke-img {
+    max-width: 210px;
+    max-height: 210px;
 }
-@media (max-width: 1200px) {
-  #searchForm {
-    display: none;
-  }
+
+.add-poke {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-link:hover .fa-trash-o {
+    color: red;
+}
+
+.card-link:hover .fa-info-circle {
+    color: #f97c00;
+}
+
+em {
+    float: right;
+    color: #e05c65;
 }
