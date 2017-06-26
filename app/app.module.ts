@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import './shared/rxjs-extensions';
     imports: [
         BrowserModule,
         FormsModule,
+        HttpModule,
         AppRoutingModule
     ],
     declarations: [
