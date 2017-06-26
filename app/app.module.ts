@@ -11,6 +11,7 @@ import { PokemonListComponent } from './poke-list/poke-list.component';
 import { PokemonAddComponent } from './poke-add/poke-add.component';
 
 import { PokemonService } from './shared/pokemon.service';
+import './shared/rxjs-extensions';
 
 @NgModule({
     imports: [
