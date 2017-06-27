@@ -32,16 +32,35 @@ export class PokemonListComponent implements OnInit {
             );
     }
 
+    // deletePokemon(pokemon: Pokemon)
+    // {
+    //     this.pokemonService.deletePokemon(pokemon)
+    //         .subscribe(
+    //             () => {},
+    //             error => this.errorMessage = <any> error,
+    //             () => {
+    //                 this.getPokemon();
+    //             }
+    //         );
+    // }
+
     deletePokemon(pokemon: Pokemon)
     {
         this.pokemonService.deletePokemon(pokemon)
             .subscribe(
-                () => {},
+                () => this.deletePokemonFromList(pokemon),
                 error => this.errorMessage = <any> error,
-                () => {
-                    this.getPokemon();
-                }
+                () => {}
             );
+    }
+
+    private deletePokemonFromList(pokemon: Pokemon)
+    {
+        var index = this.pokemon.indexOf(pokemon, 0);
+        if (index > -1)
+        {
+            this.pokemon.splice(index, 1);
+        }
     }
 
 }
