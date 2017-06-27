@@ -6,7 +6,7 @@
                     {{ cardTitle }}
                 </div>
                 <div class="card-block">
-                    <form>
+                    <form #newPokemonForm="ngForm" (ngSubmit)="savePokemon(newPokemonForm.value)" novalidate>
                         <fieldset>
                             <div class="form-group">
                                 <div class="col-md-3">
@@ -15,14 +15,31 @@
                                 </div>
 
                                 <div class="col-md-8">
-                                    <input class="form-control" required id="name" name="name" type="text" placeholder="Name" />
+                                    <input 
+                                        class="form-control"
+                                        [(ngModel)]="formPokemon.name"
+                                        required 
+                                        minlength="2"
+                                        #validate="ngModel"
+                                        id="name"
+                                        name="name"
+                                        type="text" 
+                                        placeholder="Name" 
+                                    />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-3 form-control-label" for="species">Species</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" id="species" name="species" type="text" placeholder="Species" />
+                                    <input 
+                                        class="form-control" 
+                                        [(ngModel)]="formPokemon.species"
+                                        id="species" 
+                                        name="species" 
+                                        type="text" 
+                                        placeholder="Species" 
+                                    />
                                 </div>
                             </div>
 
@@ -32,7 +49,15 @@
                                     <label class="form-control-label" for="type">Pokemon Type</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <select multiple required class="form-control" id="type" name="type">
+                                    <select 
+                                        [(ngModel)]="formPokemon.type"
+                                        #validate="ngModel"
+                                        multiple 
+                                        required 
+                                        class="form-control" 
+                                        id="type" 
+                                        name="type"
+                                    >
                               <option>Grass</option>
                               <option>Poison</option>
                               <option>Water</option>
@@ -50,16 +75,25 @@
                             <div class="form-group">
                                 <label class="col-md-3 form-control-label" for="image">Image</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" id="image" type="text" placeholder="Image URL" name="image" />
+                                    <input 
+                                        [(ngModel)]="formPokemon.image"
+                                        class="form-control" 
+                                        id="image" 
+                                        type="text" 
+                                        placeholder="Image URL" 
+                                        name="image" 
+                                    />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-4 col-md-offset-2">
                                     <span>
-                                        <button class="btn btn-primary"
-                                                type="submit"
-                                                style="width:80px;margin-right:10px">
+                                        <button 
+                                            [disabled]="!validate.valid"
+                                            class="btn btn-primary"
+                                            type="submit"
+                                            style="width:80px;margin-right:10px">
                                             Save
                                         </button>
                                     </span>

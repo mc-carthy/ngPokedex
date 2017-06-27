@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PokemonService } from './../shared/pokemon.service';
 import { Pokemon } from './../shared/pokemon';
 
@@ -8,6 +9,15 @@ import { Pokemon } from './../shared/pokemon';
 })
 
 export class PokemonAddComponent {
-    constructor() { }
+
+    formPokemon: any = {};
+    cardTitle: string = "Add Pokemon";
+    errorMessage: string;
+
+    constructor
+    (
+        private pokemonService: PokemonService,
+        private router: Router
+    ) { }
 
 }
