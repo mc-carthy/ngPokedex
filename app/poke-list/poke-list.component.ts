@@ -32,4 +32,16 @@ export class PokemonListComponent implements OnInit {
             );
     }
 
+    deletePokemon(pokemon: Pokemon)
+    {
+        this.pokemonService.deletePokemon(pokemon)
+            .subscribe(
+                () => {},
+                error => this.errorMessage = <any> error,
+                () => {
+                    this.getPokemon();
+                }
+            );
+    }
+
 }
