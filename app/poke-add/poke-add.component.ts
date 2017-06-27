@@ -20,4 +20,16 @@ export class PokemonAddComponent {
         private router: Router
     ) { }
 
+    savePokemon(formValues: any)
+    {
+        this.pokemonService.addPokemon(formValues)
+            .subscribe(
+                res => {
+                    console.log("Pokemon saved");
+                    this.router.navigate(['/']);
+                },
+                err => console.error("Error: ", err)
+            );
+    }
+
 }
