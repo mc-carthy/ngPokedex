@@ -5,7 +5,10 @@ import { Pokemon } from './../shared/pokemon';
 @Component({
     moduleId: module.id,
     selector: 'pk-list',
-    templateUrl: 'poke-list.component.html'
+    templateUrl: 'poke-list.component.html',
+    styleUrls: [
+        'poke-list.component.css'
+    ]
 })
 
 export class PokemonListComponent implements OnInit {

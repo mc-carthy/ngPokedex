@@ -1,0 +1,8 @@
+:host >>> .tooltip-inner {
+    background-color: #ff7768;
+    color: #fff;
+}
+
+:host >>> .tooltip .tooltip-arrow {
+    border-bottom-color: #ff7768;
+}
