@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PokemonService } from './../shared/pokemon.service';
 import { Pokemon } from './../shared/pokemon';
+import { ModalDirective } from 'ng2-bootstrap';
 
 @Component({
     moduleId: module.id,
@@ -13,14 +14,25 @@ import { Pokemon } from './../shared/pokemon';
 
 export class PokemonListComponent implements OnInit {
 
+    @ViewChild('childModal') public childModal: ModalDirective;
+
     pokemon: Pokemon[];
     errorMessage: string;
+
+    // Modal props
+    selectedPokemonLoaded: boolean = false;
+    pokemonDetails: Pokemon;
     
     constructor(private pokemonService: PokemonService) { }
 
     ngOnInit()
     {
         this.getPokemon();
+    }
+
+    public hideChildModal()
+    {
+        this.childModal.hide;
     }
 
     getPokemon()
@@ -55,6 +67,19 @@ export class PokemonListComponent implements OnInit {
                 error => this.errorMessage = <any> error,
                 () => {}
             );
+    }
+
+    viewSinglePokemon(id: number)
+    {
+        this.pokemonService.getPokemonDetails(id)
+            .subscribe(
+                (pokemon: Pokemon) => {
+                    this.pokemonDetails = pokemon;
+                    this.selectedPokemonLoaded = true;
+                    this.childModal.show();
+                },
+                error => this.errorMessage = <any> error
+            )
     }
 
     private deletePokemonFromList(pokemon: Pokemon)

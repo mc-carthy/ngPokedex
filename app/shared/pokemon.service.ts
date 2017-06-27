@@ -18,6 +18,15 @@ export class PokemonService {
             .catch(this.handleError);
     }
 
+    getPokemonDetails(id: number): Observable<Pokemon>
+    {
+        let url = `${this.pokemonUrl}/${id}`;
+        return this.http.get(url)
+            .map((res: Response) => <Pokemon> res.json().data)
+            .do(data => console.log(data))
+            .catch(this.handleError);
+    }
+
     addPokemon(pokemon: Pokemon): Observable<Pokemon>
     {
         let headers = new Headers({ 'Content-type': 'application/json' });
